@@ -1,7 +1,6 @@
 from Tkinter import Tk
 from PIL import Image, ImageFilter, ImageOps
 from tkFileDialog import askopenfilename
-import sys
 
 Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
 filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
