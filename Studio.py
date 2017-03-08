@@ -10,6 +10,11 @@ window.configure(background="dim gray")
 #window.resizable(False, False)
 
 
+def openPic():
+	#Tk().widthdraw()
+	file= askopenfilename()
+	return file
+
 
 window.wm_iconbitmap('favicon.ico')
 buttons=[]
@@ -17,7 +22,7 @@ buttons=[]
 lbl =Tkinter.Label(window, text="\t\t\tPhoto Studio", fg="ghost white" ,bg="dim gray")
 lbl.place(relheight=0.02, relwidth=0.9)
 
-Pick_photo=Tkinter.Button(window, text="Pick a photo to begin")
+Pick_photo=Tkinter.Button(window, text="Pick a photo to begin", command= openPic)
 Pick_photo.place(relx=0.45, rely=0.4)
 
 
