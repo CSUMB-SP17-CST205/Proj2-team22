@@ -1,5 +1,6 @@
 #import the tkinter module
 import Tkinter
+from tkFileDialog import askopenfilename
 from PIL import Image, ImageTk
 
 window=Tkinter.Tk()
