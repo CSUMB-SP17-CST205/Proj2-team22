@@ -1,9 +1,14 @@
 Name of Project: Photo Edit Studio
+
 Name of Team Members: Luis Valencia, Marco Aguilera, Sandra Maciel
 Class: CST 205
+
 Date: March 15, 2017
+
 Link to GitHub repo: https://github.com/CSUMB-SP17-CST205/Proj2-team22
-Link to C9: 
+
+Link to C9: https://ide.c9.io/marcoaguilera/marcoaguilera
+
 TA: Chanel
 
 Project Explanation: At the beginning of the project, our plan was to make a Desktop Photo Editing app that would have
