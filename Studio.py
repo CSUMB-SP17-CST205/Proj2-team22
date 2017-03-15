@@ -258,7 +258,7 @@ class App:
 
 
 		# if there are two reference points, then crop the region of interest
-		# from teh image and display it
+		# from the image and display it
 		if len(self.refPt) == 2:
 			self.roi = self.clone[self.refPt[0][1]:self.refPt[1][1], self.refPt[0][0]:self.refPt[1][0]]
 			#cv2.imshow("ROI", self.roi)
@@ -277,14 +277,15 @@ class App:
 		self.showPic()
 		cv2.destroyAllWindows()
 	
-	
+	#dummy function to set to do nothing
 	def dummy(self,event, x, y, flags, param):
 		print ""
-
+	
+	#starts the croping functionality
 	def click_and_crop(self,event, x, y, flags, param):
 		
 		
-		# grab references to the global variables
+		
 		
 
 		# if the left mouse button was clicked, record the starting
