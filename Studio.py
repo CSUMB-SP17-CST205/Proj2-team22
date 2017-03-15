@@ -8,6 +8,8 @@ import cv2 as cv2
 import numpy
 
 class App:
+	
+	#--------Default Constructor------------
 	def __init__(self, window):
 		
 		window.title("Photo Studio")
@@ -29,6 +31,7 @@ class App:
 		self.Pick_photo.place(relx=0.45, rely=0.4)
 		#self.init_buttons()
 		
+		#--------- All images used for buttons-----------
 		self.buttons=[]
 		photo= Image.open("eraser.png")
 		self.photo_image=ImageTk.PhotoImage(photo)
@@ -60,16 +63,17 @@ class App:
 		#C.grid(column=7, row=2, pady=100, padx=25)
 		self.buttons.append(C)
 		
+		#--------- All images used for buttons-----------
 		
 		
 		for i in range(4):
 			self.buttons[i].place(relx=0.2+i*0.15, rely=0.81)
 		
 
-		
+		#--------Default Constructor------------
 
 	
-
+	#------- Funtions to ask user to load a picture-------
 	def openPic(self):
 		#Tk().widthdraw()
 		self.file= askopenfilename()
@@ -86,9 +90,11 @@ class App:
 			self.img=Image.open(self.file)
 			self.saveOriginal()
 			self.showPic()
+	#-------- Makes a copy of Image loaded------
 	def saveOriginal(self):
 		self.original=self.img
 			
+	#--------- Function for filter buttons--------
 	def picFilter(self):
 		if(self.file == None):
 			return
@@ -110,6 +116,8 @@ class App:
 		self.sharpen.pack(side=LEFT)
 		self.quitFrame=Button(self.fFrame, text="Exit Filters", command = self.quit)
 		self.quitFrame.pack(side=LEFT)
+	
+	
 		
 		
 		self.fFrame.place(relx=0.275,rely=0.8)
@@ -117,7 +125,7 @@ class App:
 		self.fFrame.place_forget()
 		self.buttons[1].config(state="normal")
 		
-	
+	#---------START: Functions for filters--------
 	def bluryPIC(self):
 		self.img = self.img.filter(ImageFilter.BLUR)
 		self.Cimg = ImageTk.PhotoImage(self.img)
@@ -158,12 +166,14 @@ class App:
 		self.Cimg = ImageTk.PhotoImage(self.img)
 		
 		self.pic.create_image(0,0,image=self.Cimg, anchor='nw')
+	#---------END: Functions for filters--------
 	def reset(self):
 		if(self.file == None):
 			return
 		self.img = self.original
 		self.showPic()
 		
+	#------- Saves the edited picture-------
 	def savePIC(self):
 		self.toplevel=Toplevel()
 		self.toplevel.wm_iconbitmap('favicon.ico')
@@ -174,6 +184,7 @@ class App:
 		self.entry.focus_set()
 		enter=Button(self.toplevel, text="Save",command = self.saving)
 		enter.pack()
+	
 	def saving(self):
 		path=self.entry.get()
 		try:
@@ -185,7 +196,7 @@ class App:
 		
 		
 		
-			
+	#-------- Displays Picture---------		
 	def showPic(self):
 		
 		basewidth = 400
@@ -205,8 +216,11 @@ class App:
 		self.panel = Label(root, image = self.img)
 		self.panel.pack()
 		"""
+	#-------- Currently Under Production-------
 	def draw(self):
 		showinfo('Sorry!','This functionality has not yet been implemented.\nIf you would like to speed up development,\nplease donate at lvalencia@csumb.edu')
+	
+	#-------- Funtion to Crop Images-------
 	def cropImg(self):
 		if(self.file == None):
 			return
@@ -262,6 +276,7 @@ class App:
 		
 		self.showPic()
 		cv2.destroyAllWindows()
+	
 	
 	def dummy(self,event, x, y, flags, param):
 		print ""
